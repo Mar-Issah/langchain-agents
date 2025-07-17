@@ -1,5 +1,5 @@
 import streamlit as st
-from websearch_agent import *
+from weather_info import *
 from langsmith import traceable
 import os
 from dotenv import load_dotenv
@@ -8,12 +8,12 @@ load_dotenv()
 
 
 # I added the project name to the .env file but this took precedence
-@traceable(name="streamlit_agents_1", project_name="Langchain Agents")
+@traceable(name="streamlit_agents_1")
 def main():
     pages = {
         "LANGCHAIN AGENTS": [
             st.Page("basic_calculator.py", title="Basic Calculator : +  -  *  /  ^"),
-            st.Page("websearch_agent.py", title="Web Search Agent"),
+            st.Page("weather_info.py", title="Weather Information"),
             st.Page("manage_account.py", title="Manage your account"),
         ]
     }
