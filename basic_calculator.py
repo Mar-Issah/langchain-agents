@@ -1,5 +1,4 @@
 import streamlit as st
-from typing import Annotated
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
 import os
@@ -58,5 +57,8 @@ def calculator(query: str):
 
 query = st.text_input("Enter your query:")
 if st.button("Submit"):
+    if not query:
+        st.warning("Please enter a query to get the result.")
+        st.stop()
     response = calculator(query)
     st.success(response["output"])

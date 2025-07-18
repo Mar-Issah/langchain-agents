@@ -10,6 +10,7 @@ langchain-openai = "*"
 langchain-community = "*"
 langsmith = "*"
 python-dotenv = "*"
+google-search-results = "*"
 
 [dev-packages]
 
