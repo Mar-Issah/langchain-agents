@@ -1,5 +1,5 @@
 import streamlit as st
-from simple_chatbot import ChatGraphAgent
+from complex_chabot import ChatGraphAgent
 
 # Run the chatbot
 query = st.text_input("Enter your query:")
@@ -8,12 +8,22 @@ if st.button("Submit"):
         st.warning("Please enter a query to get a response.")
     else:
         with st.spinner("Generating response..."):
-            # initial_state = {"messages": [{"role": "user", "content": query}]}
-            initial_state = [{"role": "user", "content": query}]
+            initial_state = {"messages": [], "message_type": None}
+            initial_state["messages"].append({"role": "user", "content": query})
             agent = ChatGraphAgent()
-            st.write_stream(agent.stream_responses(initial_state))
+
             for chunk in agent.stream_responses(initial_state):
-                st.success(chunk)
+                # print(chunk)  # Debugging output
+                if chunk is None:
+                    continue  # Skip if no update
+
+                if "messages" in chunk:
+                    last_msg = chunk["messages"][-1]  # get latest message
+                    if last_msg["role"] == "assistant":
+                        st.success(last_msg["content"])
+
+                if "message_type" in chunk:
+                    st.badge(f"From your {chunk['message_type']} Therapist")
 
     # Chat input
     # prompt: str = st.chat_input("Enter a prompt here")

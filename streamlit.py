@@ -17,7 +17,7 @@ def main():
             st.Page("weather_info.py", title="Weather Information"),
         ],
         "LANGGRAPH AGENTS": [
-            st.Page("streamlit_chatbot.py", title="Chatbot"),
+            st.Page("streamlit_chatbot.py", title="Emotional/logical chatbot"),
         ],
     }
 
