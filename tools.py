@@ -43,7 +43,7 @@ from datetime import datetime
 
 
 @tool
-def get_location_from_ip():
+def get_location_from_ip() -> str:
     """Get the geographical location based on the IP address."""
     try:
         response = requests.get("https://ipinfo.io/json")

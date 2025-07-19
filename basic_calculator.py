@@ -55,7 +55,7 @@ def calculator(query: str):
     return response
 
 
-query = st.text_input("Enter your query:")
+query = st.text_input("Enter a text:", placeholder="What is 2 plus 2?")
 if st.button("Submit"):
     if not query:
         st.warning("Please enter a query to get the result.")

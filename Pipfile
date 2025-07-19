@@ -5,12 +5,13 @@ name = "pypi"
 
 [packages]
 streamlit = "*"
-langchain = "*"
 langchain-openai = "*"
 langchain-community = "*"
 langsmith = "*"
 python-dotenv = "*"
 google-search-results = "*"
+langgraph = "*"
+langchain = {extras = ["anthropic"], version = "*"}
 
 [dev-packages]
 

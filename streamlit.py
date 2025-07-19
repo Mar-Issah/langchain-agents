@@ -10,12 +10,17 @@ load_dotenv()
 # I added the project name to the .env file but this took precedence
 @traceable(name="streamlit_agents_1")
 def main():
+    st.set_page_config(page_icon="🛠️")
     pages = {
         "LANGCHAIN AGENTS": [
             st.Page("basic_calculator.py", title="Basic Calculator : +  -  *  /  ^"),
             st.Page("weather_info.py", title="Weather Information"),
-            st.Page("manage_account.py", title="Manage your account"),
-        ]
+        ],
+        "LANGGRAPH AGENTS": [
+            st.Page("langraph_chatbot.py", title="Chatbot"),
+            # st.Page("weather_info.py", title="Weather Information"),
+            # st.Page("manage_account.py", title="Manage your account"),
+        ],
     }
 
     pg = st.navigation(pages)
