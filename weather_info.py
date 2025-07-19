@@ -56,4 +56,4 @@ if st.button("Submit"):
     with st.spinner("Fetching weather information..."):
         # Call the weather function with the user's query
         response = weather(query)
-        st.success(response)
+        st.success(response.get("output"))
